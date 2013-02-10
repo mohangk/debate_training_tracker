@@ -2,18 +2,19 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :topic
-    = f.input :my_feedback
-    = f.input :adjudicator_feedback
+    = f.input :topic,  input_html: { class: 'input-xxlarge' }
+    = f.input :won , as: :radio_buttons
+    = f.input :position, as: :select, collection: ['PM', 'DPM', 'GW', 'LO', 'DLO', 'OW']
     = f.input :team_mates
     = f.input :opponents
-    = f.input :position
-    = f.input :won
-    = f.input :margin
+
     = f.input :score
     = f.input :matter
     = f.input :manner
     = f.input :method
+    = f.input :margin
 
+    = f.input :adjudicator_feedback, as: :text, input_html: { rows: 4, class: 'input-xxlarge' }
+    = f.input :my_feedback, as: :text, input_html: { rows: 4, class: 'input-xxlarge' }
   .form-actions
     = f.button :submit
