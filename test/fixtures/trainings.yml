@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  topic: MyString
+  my_feedback: MyText
+  adjudicator_feedback: MyText
+  team_mates: MyString
+  opponents: MyString
+  position: MyString
+  won: false
+  margin: 1
+  score: 1
+  matter: 1
+  manner: 1
+  method: 1
+
+two:
+  topic: MyString
+  my_feedback: MyText
+  adjudicator_feedback: MyText
+  team_mates: MyString
+  opponents: MyString
+  position: MyString
+  won: false
+  margin: 1
+  score: 1
+  matter: 1
+  manner: 1
+  method: 1

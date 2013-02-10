@@ -1,0 +1,41 @@
+%h1 Listing trainings
+
+%table
+  %tr
+    %th Topic
+    %th My feedback
+    %th Adjudicator feedback
+    %th Team mates
+    %th Opponents
+    %th Position
+    %th Won
+    %th Margin
+    %th Score
+    %th Matter
+    %th Manner
+    %th Method
+    %th
+    %th
+    %th
+
+  - @trainings.each do |training|
+    %tr
+      %td= training.topic
+      %td= training.my_feedback
+      %td= training.adjudicator_feedback
+      %td= training.team_mates
+      %td= training.opponents
+      %td= training.position
+      %td= training.won
+      %td= training.margin
+      %td= training.score
+      %td= training.matter
+      %td= training.manner
+      %td= training.method
+      %td= link_to 'Show', training
+      %td= link_to 'Edit', edit_training_path(training)
+      %td= link_to 'Destroy', training, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Training', new_training_path
