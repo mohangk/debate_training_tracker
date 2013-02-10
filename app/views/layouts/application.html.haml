@@ -25,13 +25,15 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand(href="#") AdiTracker
+          %a.brand(href="#") ADI Performance Tracker
           .container.nav-collapse
             %ul.nav
               %li= link_to "Goals", ""
               %li= link_to "Trainings", trainings_path
-            %ul.nav.pull-right
-              %li= link_to "Sign out", destroy_user_session_path if current_user
+            - if current_user
+              %ul.nav.pull-right
+                %li= link_to current_user.email, edit_user_registration_path
+                %li= link_to "Sign out", destroy_user_session_path
 
     .container-fluid
 
