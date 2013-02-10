@@ -30,6 +30,8 @@
             %ul.nav
               %li= link_to "Goals", ""
               %li= link_to "Trainings", trainings_path
+            %ul.nav.pull-right
+              %li= link_to "Sign out", destroy_user_session_path if current_user
 
     .container-fluid
 
