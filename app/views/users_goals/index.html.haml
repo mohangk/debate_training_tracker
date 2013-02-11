@@ -1,0 +1,11 @@
+%table.table
+  %tr
+    %th Description
+
+  - @my_goals.each do |goal|
+    %tr
+      %td= goal.description
+
+%br
+
+= link_to 'Manage my goals', new_users_goal_path

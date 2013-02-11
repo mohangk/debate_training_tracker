@@ -1,0 +1,53 @@
+%table.table
+  %tr
+    %th Choose pre ready goals
+    %th
+
+  - @goals.each do |goal|
+    %tr
+      %td= goal.description
+      %td= check_box_tag "goal_id", goal.id , goal.is_set?(current_user), :'data-user_goal_id'=>  (goal.user_goal(current_user).id if goal.is_set?(current_user))
+
+%table.table
+  %tr
+    %th My goals
+    %th
+    %th
+  - @my_custom_goals.each do |goal|
+    %tr
+      %td= goal.description
+      %td= link_to 'Edit', edit_users_goal_path(goal)
+      %td= link_to 'Destroy', goal, method: :delete, data: { confirm: 'Are you sure?' }
+
+= render 'form'
+
+= link_to 'Show', @users_goal
+\|
+= link_to 'Back', users_goals_path
+
+:coffeescript
+  updateUserGoal = (goal_id) ->
+    $.ajax(
+      method: 'POST'
+      url: '/users_goals/',
+      data: {users_goal: { goal_id: goal_id } },
+      success: 
+        (data) -> 
+          $('input[type=checkbox][value='+data.goal_id+']').data('user_goal_id', data.id)
+      dataType: 'json')
+
+  deleteUserGoal = (user_goal_id) ->
+    $.ajax(
+      method: 'DELETE'
+      url: '/users_goals/'+user_goal_id
+      data: {id: user_goal_id}
+      dataType: 'json')
+
+  $ ->
+    $('input[type=checkbox]').on 'click',
+      (e) ->
+
+        if e.target.checked
+          updateUserGoal e.target.value
+        else
+          deleteUserGoal $(e.target).data('user_goal_id')

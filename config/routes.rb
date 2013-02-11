@@ -1,5 +1,11 @@
 AdiTracker::Application.routes.draw do
 
+  resources :users_goals
+
+
+  resources :goals
+
+
   root to: 'trainings#index'
   devise_for :users
 

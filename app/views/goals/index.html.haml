@@ -1,0 +1,16 @@
+%table.table
+  %tr
+    %th Category
+    %th Description
+    %th
+    %th
+    %th
+
+  - @goals.each do |goal|
+    %tr
+      %td= goal.category
+      %td= goal.description
+
+%br
+
+= link_to 'New Goal', new_goal_path

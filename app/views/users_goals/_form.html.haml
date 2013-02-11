@@ -1,0 +1,8 @@
+%h3 #{@form_title}
+= simple_form_for(@user_goal) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :description,  input_html: { class: 'input-xxlarge' }
+
+  .form-actions
+    = f.button :submit, value: @submit_title
