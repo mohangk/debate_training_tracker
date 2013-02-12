@@ -11,4 +11,12 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
+
+  def goals
+    UsersGoal.for_user self
+  end
+
+  def custom_goals
+    UsersGoal.custom_goals self
+  end
 end

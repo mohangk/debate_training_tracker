@@ -5,16 +5,25 @@
     = f.input :topic,  input_html: { class: 'input-xxlarge' }
     = f.input :won , as: :radio_buttons
     = f.input :position, as: :select, collection: ['PM', 'DPM', 'GW', 'LO', 'DLO', 'OW']
-    = f.input :team_mates
-    = f.input :opponents
+    -# = f.input :team_mates
+    -# = f.input :opponents
 
     = f.input :score
     = f.input :matter
     = f.input :manner
     = f.input :method
-    = f.input :margin
+    -# = f.input :margin
 
     = f.input :adjudicator_feedback, as: :text, input_html: { rows: 4, class: 'input-xxlarge' }
     = f.input :my_feedback, as: :text, input_html: { rows: 4, class: 'input-xxlarge' }
+
+
+    %h2 Goals progress
+    
+    = f.simple_fields_for :training_achievements do |f|
+      = f.input :score, as: :radio_buttons, collection: 0..10, label: f.object.description, item_wrapper_class: 'padded-inline'
+      = f.input :users_goal_id, as: :hidden
+      = f.input :training_id, as: :hidden
+
   .form-actions
     = f.button :submit

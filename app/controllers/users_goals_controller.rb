@@ -62,7 +62,7 @@ class UsersGoalsController < ApplicationController
   def update
 
     @goals = Goal.all
-    @my_goals = my_goals
+    @my_custom_goals = my_custom_goals
     @user_goal = my_goals.find(params[:id])
 
     respond_to do |format|
@@ -88,13 +88,13 @@ class UsersGoalsController < ApplicationController
     end
   end
 
-  private 
+  private
 
   def my_goals
-    UsersGoal.for_user current_user
+    current_user.goals
   end
 
   def my_custom_goals
-    UsersGoal.custom_goals current_user
+    current_user.custom_goals
   end
 end

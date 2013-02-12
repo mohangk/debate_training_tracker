@@ -27,6 +27,12 @@ class TrainingsController < ApplicationController
   def new
     @training = Training.new
 
+    current_user.goals.each { |my_goal|
+      training_achievement = TrainingAchievement.new
+      training_achievement.users_goal = my_goal
+      @training.training_achievements << training_achievement
+    }
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @training }
@@ -44,11 +50,13 @@ class TrainingsController < ApplicationController
     @training = Training.new(params[:training])
     @training.user = current_user
 
+    
     respond_to do |format|
       if @training.save
         format.html { redirect_to @training, notice: 'Training was successfully created.' }
         format.json { render json: @training, status: :created, location: @training }
       else
+        raise @training.errors.inspect
         format.html { render action: "new" }
         format.json { render json: @training.errors, status: :unprocessable_entity }
       end

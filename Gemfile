@@ -24,6 +24,7 @@ group :assets do
 end
 
 group :development do
+  gem 'debugger'
   gem 'meta_request', '0.2.1'
 end
 
@@ -46,3 +47,4 @@ gem 'twitter-bootstrap-rails'
 gem 'devise'
 gem 'simple_form'
 gem 'haml-rails', '>= 0.3.4', :group => :development
+gem 'activeadmin'

@@ -3,6 +3,8 @@ class UsersGoal < ActiveRecord::Base
   belongs_to :user
   belongs_to :goal
 
+  has_many :training_achievements, inverse_of: :users_goal, dependent: :destroy
+
   validates :user_id, presence: true
   validates :goal_id, uniqueness: {scope: :user_id, allow_nil: true, allow_blank: true}
 
