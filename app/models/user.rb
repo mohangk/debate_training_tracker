@@ -7,9 +7,12 @@ class User < ActiveRecord::Base
 
   has_many :user_goals, dependent: :destroy
   has_many :goals, through: :users_goals
+  has_many :trainings, dependent: :destroy
+  validates :name, presence: true
+  validates :institution, presence: true
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :institution
   # attr_accessible :title, :body
 
   def goals
@@ -19,4 +22,9 @@ class User < ActiveRecord::Base
   def custom_goals
     UsersGoal.custom_goals self
   end
+
+  def to_s
+    name
+  end
+
 end

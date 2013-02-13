@@ -10,4 +10,8 @@ class Goal < ActiveRecord::Base
   def user_goal(user)
     users_goals.where(user_id: user.id).first
   end
+
+  def to_s
+    description
+  end
 end
