@@ -1,0 +1,18 @@
+= simple_form_for(@training) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :activity,  input_html: { class: 'input-xxlarge' }
+
+    = f.input :adjudicator_feedback, as: :text, input_html: { rows: 4, class: 'input-xxlarge' }
+    = f.input :my_feedback, as: :text, input_html: { rows: 4, class: 'input-xxlarge' }
+
+    %h2 Goals progress
+
+    = f.simple_fields_for :training_achievements do |f|
+      = f.input :score, as: :radio_buttons, collection: 0..10, label: f.object.description, item_wrapper_class: 'padded-inline'
+      = f.input :users_goal_id, as: :hidden
+      = f.input :training_id, as: :hidden
+
+  .form-actions
+    = f.button :submit, class: 'btn btn-success'

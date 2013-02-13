@@ -1,0 +1,42 @@
+%p#notice= notice
+
+%p
+  %b Topic:
+  = @training.topic
+%p
+  %b My feedback:
+  = @training.my_feedback
+%p
+  %b Adjudicator feedback:
+  = @training.adjudicator_feedback
+%p
+  %b Team mates:
+  = @training.team_mates
+%p
+  %b Opponents:
+  = @training.opponents
+%p
+  %b Position:
+  = @training.position
+%p
+  %b Won:
+  = @training.won
+%p
+  %b Margin:
+  = @training.margin
+%p
+  %b Score:
+  = @training.score
+%p
+  %b Matter:
+  = @training.matter
+%p
+  %b Manner:
+  = @training.manner
+%p
+  %b Method:
+  = @training.method
+
+= link_to 'Edit', edit_training_path(@training)
+\|
+= link_to 'Back', trainings_path

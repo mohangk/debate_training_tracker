@@ -9,11 +9,13 @@ AdiTracker::Application.routes.draw do
 
   resources :goals
 
-
   root to: 'trainings#index'
+
   devise_for :users
 
   resources :trainings
+  resources :debate_trainings
+  resources :activity_trainings
 
 
   # The priority is based upon order of creation:

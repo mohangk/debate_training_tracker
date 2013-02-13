@@ -1,7 +1,6 @@
 class Training < ActiveRecord::Base
 
   belongs_to :user
-  belongs_to :debate
 
   has_many :training_achievements, inverse_of: :training, dependent: :destroy
 
@@ -9,10 +8,10 @@ class Training < ActiveRecord::Base
 
   accepts_nested_attributes_for :training_achievements
 
-  attr_accessible :adjudicator_feedback, :manner, :margin, :matter, :method, :my_feedback, :opponents, :position, :score, :team_mates, :topic, :won, :training_achievements_attributes, :debate_id
+  attr_accessible :training_achievements_attributes
 
   def self.for_user user
-    Training.where(user_id: user.id)
+    where(user_id: user.id)
   end
 
 end

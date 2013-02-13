@@ -1,5 +1,7 @@
+%h3 Debate trainings
 %table.table
   %tr
+    %th
     %th Topic
     %th Won
     %th Position
@@ -8,16 +10,39 @@
     %th
     %th
 
-  - @trainings.each do |training|
+  - @debate_trainings.each do |training|
     %tr
-      %td= training.debate.name
+      %td= training.scheduled_at
+      %td= training.name
       %td= training.won
       %td= training.position
       %td= training.score
       %td= link_to 'Show', training, class: 'btn btn-inverse'
-      %td= link_to 'Edit', edit_training_path(training), class: 'btn btn-info'
-      %td= link_to 'Destroy', training, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
+      %td= link_to 'Edit', edit_debate_training_path(training), class: 'btn btn-info'
+      %td= link_to 'Destroy', training_path(training), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
 
 %br
 
-= link_to 'New Training', new_training_path, class: 'btn btn-primary'
+%h3 Activity trainings
+%table.table
+  %tr
+    %th
+    %th Name
+    %th
+    %th
+    %th
+
+  - @activity_trainings.each do |training|
+    %tr
+      %td= training.scheduled_at
+      %td= training.name
+      %td= link_to 'Show', training, class: 'btn btn-inverse'
+      %td= link_to 'Edit', edit_activity_training_path(training), class: 'btn btn-info'
+      %td= link_to 'Destroy', training_path(training), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
+
+%br
+
+
+= link_to 'New Debate Training', new_debate_training_path, class: 'btn btn-primary'
+= link_to 'New Activity Training', new_activity_training_path, class: 'btn btn-primary'
+

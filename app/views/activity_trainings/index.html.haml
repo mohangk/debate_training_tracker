@@ -1,0 +1,25 @@
+%table.table
+  %tr
+    %th Topic
+    %th Won
+    %th Position
+    %th Score
+    %th
+    %th
+    %th
+
+  - @trainings.each do |training|
+    %tr
+      %td= training.debate.name
+      %td= training.won
+      %td= training.position
+      %td= training.score
+      %td= link_to 'Show', training, class: 'btn btn-inverse'
+      %td= link_to 'Edit', edit_training_path(training), class: 'btn btn-info'
+      %td= link_to 'Destroy', training, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
+
+%br
+
+= link_to 'New Debate Training', new_debate_training_path, class: 'btn btn-primary'
+= link_to 'New Activity Training', new_debate_training_path, class: 'btn btn-primary'
+
