@@ -31,11 +31,17 @@
     %th
     %th
     %th
+    %th
+    %th
+    %th
 
   - @activity_trainings.each do |training|
     %tr
       %td= training.scheduled_at
       %td= training.name
+      %td
+      %td
+      %td
       %td= link_to 'Show', training, class: 'btn btn-inverse'
       %td= link_to 'Edit', edit_activity_training_path(training), class: 'btn btn-info'
       %td= link_to 'Destroy', training_path(training), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'

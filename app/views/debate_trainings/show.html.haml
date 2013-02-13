@@ -2,28 +2,25 @@
 
 %p
   %b Topic:
-  = @training.topic
+  = @training.name
 %p
   %b My feedback:
   = @training.my_feedback
 %p
   %b Adjudicator feedback:
   = @training.adjudicator_feedback
-%p
-  %b Team mates:
-  = @training.team_mates
-%p
-  %b Opponents:
-  = @training.opponents
-%p
+-# %p
+-#   %b Team mates:
+-#   = @training.team_mates
+-# %p
+-#   %b Opponents:
+-#   = @training.opponents
+-# %p
   %b Position:
   = @training.position
 %p
   %b Won:
   = @training.won
-%p
-  %b Margin:
-  = @training.margin
 %p
   %b Score:
   = @training.score
@@ -37,6 +34,5 @@
   %b Method:
   = @training.method
 
-= link_to 'Edit', edit_training_path(@training)
-\|
-= link_to 'Back', trainings_path
+= link_to 'Edit', edit_debate_training_path(@training), class: 'btn btn-info'
+= link_to 'Back', trainings_path, class: 'btn btn-inverse'

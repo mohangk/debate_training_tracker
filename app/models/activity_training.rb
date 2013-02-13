@@ -11,6 +11,10 @@ class ActivityTraining < Training
     activity.long_name
   end
 
+  def description
+    activity.description
+  end
+
   def scheduled_at
     activity.scheduled_at.strftime('%m %B %I:%M %p')
   end
