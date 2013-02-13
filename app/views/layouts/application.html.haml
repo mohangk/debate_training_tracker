@@ -28,10 +28,10 @@
             %span.icon-bar
           %a.brand(href="#") ADI Performance Tracker
           .container.nav-collapse
-            %ul.nav
-              %li= link_to "My goals", users_goals_path
-              %li= link_to "Trainings", trainings_path
             - if current_user
+              %ul.nav
+                %li= link_to "My goals", users_goals_path
+                %li= link_to "Trainings", trainings_path
               %ul.nav.pull-right
                 %li= link_to current_user.email, edit_user_registration_path
                 %li= link_to "Sign out", destroy_user_session_path
@@ -39,12 +39,12 @@
     .container-fluid
 
       .row-fluid
-        .span3
-          .well.sidebar-nav
-            %ul.nav.nav-list
-              %li.nav-header Sidebar
-              %li= link_to "My goals", users_goals_path
-              %li= link_to "Trainings", trainings_path
+        -# .span3
+        -#   .well.sidebar-nav
+        -#     %ul.nav.nav-list
+        -#       %li.nav-header Sidebar
+        -#       %li= link_to "My goals", users_goals_path
+        -#       %li= link_to "Trainings", trainings_path
         .span9
           = bootstrap_flash
           = yield
