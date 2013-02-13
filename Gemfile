@@ -20,7 +20,6 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   gem 'therubyracer'
   gem 'less-rails' #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-  gem 'coffee-filter'
 end
 
 group :development do
@@ -28,6 +27,7 @@ group :development do
   gem 'meta_request', '0.2.1'
 end
 
+gem 'coffee-filter'
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
 # To use ActiveModel has_secure_password
