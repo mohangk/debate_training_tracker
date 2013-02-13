@@ -1,29 +1,27 @@
-%table.table
-  %tr
-    %th Choose pre ready goals
-    %th
-
-  - @goals.each do |goal|
+.well
+  %table.table
     %tr
-      %td= goal.description
-      %td= check_box_tag "goal_id", goal.id , goal.is_set?(current_user), :'data-user_goal_id'=>  (goal.user_goal(current_user).id if goal.is_set?(current_user))
+      %th Choose pre ready goals
+      %th
 
-%table.table
-  %tr
-    %th My goals
-    %th
-    %th
-  - @my_custom_goals.each do |goal|
+    - @goals.each do |goal|
+      %tr
+        %td= goal.description
+        %td= check_box_tag "goal_id", goal.id , goal.is_set?(current_user), :'data-user_goal_id'=>  (goal.user_goal(current_user).id if goal.is_set?(current_user))
+
+.well
+  %table.table
     %tr
-      %td= goal.description
-      %td= link_to 'Edit', edit_users_goal_path(goal)
-      %td= link_to 'Destroy', goal, method: :delete, data: { confirm: 'Are you sure?' }
+      %th My goals
+      %th
+      %th
+    - @my_custom_goals.each do |goal|
+      %tr
+        %td= goal.description
+        %td= link_to 'Edit', edit_users_goal_path(goal), class: 'btn btn-info'
+        %td= link_to 'Destroy', goal, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
 
-= render 'form'
-
-= link_to 'Show', @users_goal
-\|
-= link_to 'Back', users_goals_path
+  = render 'form'
 
 :coffeescript
   updateUserGoal = (goal_id) ->

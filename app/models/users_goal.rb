@@ -7,6 +7,7 @@ class UsersGoal < ActiveRecord::Base
 
   validates :user_id, presence: true
   validates :goal_id, uniqueness: {scope: :user_id, allow_nil: true, allow_blank: true}
+  validates :description, presence: true, if: Proc.new {|user_goal| user_goal.goal_id.nil? }
 
   def self.for_user user
     UsersGoal.where(user_id: user.id)

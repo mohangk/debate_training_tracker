@@ -2,15 +2,11 @@
   %tr
     %th Description
     %th Progress
-    %th Complete?
 
   - @my_goals.each do |goal|
     %tr
       %td= goal.description
       %td= goal.average
-      %td= check_box_tag 'test'
-    
-
 %br
 
-= link_to 'Manage my goals', new_users_goal_path
+= link_to 'Manage my goals', new_users_goal_path, class: 'btn btn-primary'

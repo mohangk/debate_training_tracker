@@ -49,8 +49,13 @@
           = bootstrap_flash
           = yield
     
+    %br
+    %br
       %footer
-        %p &copy; Company 2013
+        %p 
+          %small &copy;
+          %small= link_to "A DebateWorks product", "http://www.debateworks.com"
+          %small | Running a tournament? Use #{link_to "Fastrego", "http://www.fastrego.com"}
     /
       Javascripts
       \==================================================

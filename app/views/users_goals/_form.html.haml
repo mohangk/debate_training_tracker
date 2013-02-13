@@ -4,5 +4,5 @@
   .form-inputs
     = f.input :description,  input_html: { class: 'input-xxlarge' }
 
-  .form-actions
-    = f.button :submit, value: @submit_title
+  = f.button :submit, value: @submit_title, class: 'btn btn-success'
+  #{link_to 'Cancel', :back, class: 'btn btn-inverse' }
