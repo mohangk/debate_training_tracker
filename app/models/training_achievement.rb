@@ -14,4 +14,8 @@ class TrainingAchievement < ActiveRecord::Base
     users_goal.description
   end
 
+  def to_s
+    description
+  end
+
 end

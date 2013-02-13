@@ -21,4 +21,14 @@ class UsersGoal < ActiveRecord::Base
     UsersGoal.for_user(user).where(goal_id: nil)
   end
 
+  def to_s
+    description
+  end
+
+  def average
+    return 0 if training_achievements.count == 0
+    sum = training_achievements.inject(0) { |sum, x| sum + x.score } 
+    sum/training_achievements.count
+  end
+
 end

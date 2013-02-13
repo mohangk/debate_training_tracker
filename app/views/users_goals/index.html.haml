@@ -1,10 +1,15 @@
 %table.table
   %tr
     %th Description
+    %th Progress
+    %th Complete?
 
   - @my_goals.each do |goal|
     %tr
       %td= goal.description
+      %td= goal.average
+      %td= check_box_tag 'test'
+    
 
 %br
 
