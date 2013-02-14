@@ -8,7 +8,7 @@ class ActivityTraining < Training
     :my_feedback, :activity_id
 
   def name
-    activity.long_name
+    activity.topic
   end
 
   def description

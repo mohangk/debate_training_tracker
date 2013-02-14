@@ -14,10 +14,6 @@ class TrainingAchievement < ActiveRecord::Base
     users_goal.user
   end
 
-  def type
-    training.type
-  end
-
   def description
     users_goal.description
   end
@@ -25,5 +21,6 @@ class TrainingAchievement < ActiveRecord::Base
   def to_s
     description
   end
+
 
 end
