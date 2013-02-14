@@ -13,7 +13,7 @@ class AdminUser < ActiveRecord::Base
   has_many :activities, inverse_of: :admin_user
 
   def to_s
-    email
+    name
   end
 
 end
