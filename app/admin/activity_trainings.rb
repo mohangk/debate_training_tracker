@@ -3,6 +3,7 @@ ActiveAdmin.register ActivityTraining do
     column :scheduled_at
     column :adjudicator_feedback
     column :my_feedback
+    column :user
     column :activity
     default_actions
   end
