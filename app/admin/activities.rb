@@ -22,6 +22,7 @@ ActiveAdmin.register Activity do
       f.input :scheduled_at
       f.input :topic
       f.input :venue
+      f.input :description
       f.input :admin_user
     end
 
