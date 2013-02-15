@@ -8,14 +8,14 @@ class ActivityTraining < Training
     :my_feedback, :activity_id
 
   def name
-    activity.topic
+    activity && activity.topic
   end
 
   def description
-    activity.description
+    activity && activity.description
   end
 
   def scheduled_at
-    activity.scheduled_at.strftime('%m %B %I:%M %p')
+    activity && activity.scheduled_at.strftime('%m %B %I:%M %p')
   end
 end
