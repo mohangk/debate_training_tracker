@@ -11,10 +11,10 @@ class DebateTraining < Training
     :debate_id
 
   def name
-    debate.topic
+    debate && debate.topic
   end
 
   def scheduled_at
-    debate.scheduled_at.strftime('%m %B %I:%M %p')
+    debate && debate.scheduled_at.strftime('%m %B %I:%M %p')
   end
 end
