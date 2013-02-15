@@ -1,4 +1,6 @@
 .well
+  %h5 Select personal goals to work towards this ADI. Selecting the boxes will activate/deactivate the goals and automatically save them. You only need to click "add my custom goal" if you want to create a goal that is not already listed.
+  %br
   %table.table
     %tr
       %th Choose pre ready goals
@@ -10,9 +12,11 @@
         %td= check_box_tag "goal_id", goal.id , goal.is_set?(current_user), :'data-user_goal_id'=>  (goal.user_goal(current_user).id if goal.is_set?(current_user))
 
 .well
+  %h5 If you want to work on something that not included in the form above, use this form to add it! For example, if you want to improve your knowledge in a specific topic area (like international relations, or technology, or environment issues) or work on a detailed skill set (learn how to train juniors in my debate society, be funny in a debate, learn to be a good reply speaker). Add anything you want to work on!
+  %br
   %table.table
     %tr
-      %th My goals
+      %th Custom goals
       %th
       %th
     - @my_custom_goals.each do |goal|

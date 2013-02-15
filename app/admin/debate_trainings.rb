@@ -1,4 +1,5 @@
 ActiveAdmin.register DebateTraining do
+  menu label: 'Debate feedback', priority: 22 
   index do
     column :scheduled_at
     column :adjudicator_feedback

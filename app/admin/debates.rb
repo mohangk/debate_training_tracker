@@ -1,4 +1,5 @@
 ActiveAdmin.register Debate do
+  menu priority: 12
   index do
     column :scheduled_at
     column :topic

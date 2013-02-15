@@ -1,4 +1,5 @@
 ActiveAdmin.register ActivityTraining do
+  menu label: 'Activity feedback', priority: 21
   index do
     column :scheduled_at
     column :adjudicator_feedback

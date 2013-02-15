@@ -1,4 +1,5 @@
 ActiveAdmin.register Activity do
+  menu priority: 11
   index do
     column :scheduled_at
     column :topic
