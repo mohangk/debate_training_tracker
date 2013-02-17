@@ -66,4 +66,14 @@ AdiTracker::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   config.assets.precompile += %w[active_admin.css active_admin.js active_admin/print.css]
   config.action_mailer.default_url_options = { :host => 'http://adi2013.herokuapp.com' }
+
+  ActionMailer::Base.smtp_settings = {
+      :port => ENV['MAILGUN_SMTP_PORT'],
+      :address =>  ENV['MAILGUN_SMTP_SERVER'],
+      :user_name => ENV['MAILGUN_SMTP_LOGIN'],
+      :password => ENV['MAILGUN_SMTP_PASSWORD'],
+      :domain => ENV['PRODUCTION_HOSTNAME'],
+      :authentication => :plain,
+  }
+  ActionMailer::Base.delivery_method = :smtp
 end
