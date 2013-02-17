@@ -65,4 +65,5 @@ AdiTracker::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   config.assets.precompile += %w[active_admin.css active_admin.js active_admin/print.css]
+  config.action_mailer.default_url_options = { :host => 'http://adi2013.herokuapp.com' }
 end
