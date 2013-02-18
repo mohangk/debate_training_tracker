@@ -12,8 +12,10 @@ class User < ActiveRecord::Base
   validates :institution, presence: true
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :institution
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :institution, :lab
   # attr_accessible :title, :body
+
+  LABS = ['ALPHA 1', 'ALPHA 2', 'ALPHA 3', 'BETA 1', 'BETA 2', 'BETA 3', 'OMEGA']
 
   def goals
     UsersGoal.for_user self
