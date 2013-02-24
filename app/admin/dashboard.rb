@@ -24,10 +24,10 @@ ActiveAdmin.register_page "Dashboard" do
             AdminUser.order(:name).map do |admin_user|
               tr do
                 td admin_user.name
-                td admin_user.activities.count
-                td admin_user.activity_trainings.count
-                td admin_user.debates.count
-                td admin_user.debate_trainings.count
+                td link_to admin_user.activities.count, admin_activities_path('q[admin_user_id_eq]' => admin_user.id)
+                td link_to admin_user.activity_trainings.count, admin_activity_trainings_path('q[activity_admin_user_name_eq]' => admin_user.name)
+                td link_to admin_user.debates.count, admin_debates_path('q[admin_user_id_eq]' => admin_user.id)
+                td link_to admin_user.debate_trainings.count, admin_debate_trainings_path('q[debate_admin_user_name_eq]'=>admin_user.name)
               end
             end
           end
