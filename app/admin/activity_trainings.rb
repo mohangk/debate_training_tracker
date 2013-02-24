@@ -5,6 +5,7 @@ ActiveAdmin.register ActivityTraining do
     column :adjudicator_feedback
     column :my_feedback
     column :user
+    column :lab, sortable: false
     column :activity
     default_actions
   end
@@ -17,4 +18,11 @@ ActiveAdmin.register ActivityTraining do
     end
     f.actions
   end
+
+
+
+  filter :activity
+  filter :user
+  filter :user_lab, as: :select, collection: User::LABS
+
 end

@@ -5,11 +5,16 @@ ActiveAdmin.register DebateTraining do
     column :adjudicator_feedback
     column :my_feedback
     column :user
+    column :lab, sortable: false
     column :score
     column :debate
     column :position
     column :won
     default_actions
   end
+
+  filter :debate
+  filter :user
+  filter :user_lab, as: :select, collection: User::LABS
   
 end

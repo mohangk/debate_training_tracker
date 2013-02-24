@@ -1,6 +1,7 @@
 class ActivityTraining < Training
 
-  belongs_to :activity, inverse_of: :trainings
+  belongs_to :activity, inverse_of: :activity_trainings
+  belongs_to :user, inverse_of: :activity_trainings
 
   validates :activity, presence: true
 
@@ -17,5 +18,9 @@ class ActivityTraining < Training
 
   def scheduled_at
     activity && activity.scheduled_at.strftime('%m %B %I:%M %p')
+  end
+
+  def lab
+    user.lab
   end
 end

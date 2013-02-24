@@ -14,6 +14,10 @@ class TrainingAchievement < ActiveRecord::Base
     users_goal.user
   end
 
+  def lab
+    user.lab
+  end
+
   def description
     users_goal.description
   end

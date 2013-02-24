@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   has_many :user_goals, dependent: :destroy
   has_many :goals, through: :users_goals
-  has_many :trainings, dependent: :destroy
+  has_many :activity_trainings, dependent: :destroy
   validates :name, presence: true
   validates :institution, presence: true
 
