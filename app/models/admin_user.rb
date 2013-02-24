@@ -5,12 +5,12 @@ class AdminUser < ActiveRecord::Base
   devise :database_authenticatable, 
          :recoverable, :rememberable, :trackable, :validatable
 
-  # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name
-  # attr_accessible :title, :body
-  
+
   has_many :debates, inverse_of: :admin_user
   has_many :activities, inverse_of: :admin_user
+  has_many :debate_trainings, through: :debates
+  has_many :activity_trainings, through: :activities
 
   def to_s
     name

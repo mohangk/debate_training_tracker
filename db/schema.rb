@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(:version => 20130218233413) do
     t.datetime "scheduled_at"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
-    t.string   "admin_user_id"
+    t.integer  "admin_user_id"
   end
 
   create_table "admin_users", :force => true do |t|
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(:version => 20130218233413) do
     t.datetime "scheduled_at"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
-    t.string   "admin_user_id"
+    t.integer  "admin_user_id"
   end
 
   create_table "goals", :force => true do |t|
@@ -95,7 +95,7 @@ ActiveRecord::Schema.define(:version => 20130218233413) do
     t.integer  "user_id"
     t.integer  "debate_id"
     t.string   "type"
-    t.string   "activity_id"
+    t.integer  "activity_id"
   end
 
   create_table "users", :force => true do |t|

@@ -1,6 +1,6 @@
 class DebateTraining < Training
 
-  belongs_to :debate, inverse_of: :trainings
+  belongs_to :debate, inverse_of: :debate_trainings
 
   validates :debate, presence: true
 

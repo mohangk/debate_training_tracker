@@ -13,6 +13,8 @@ ActiveAdmin.register DebateTraining do
     default_actions
   end
 
+
+  filter :debate_admin_user_name, as: :select, collection: AdminUser.all.map(&:name)
   filter :debate
   filter :user
   filter :user_lab, as: :select, collection: User::LABS

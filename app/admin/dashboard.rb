@@ -10,24 +10,61 @@ ActiveAdmin.register_page "Dashboard" do
       end
     end
 
-    # Here is an example of a simple dashboard with columns and panels.
-    #
-    # columns do
-    #   column do
-    #     panel "Recent Posts" do
-    #       ul do
-    #         Post.recent(5).map do |post|
-    #           li link_to(post.title, admin_post_path(post))
-    #         end
-    #       end
-    #     end
-    #   end
+    columns do
+      column do
+        panel 'Activty & debate feedback overview' do
+          table do
+            tr do
+              th 'Name'
+              th '# Activities'
+              th '# Activity feedback'
+              th '# Debates'
+              th '# Debate feedback'
+            end
+            AdminUser.order(:name).map do |admin_user|
+              tr do
+                td admin_user.name
+                td admin_user.activities.count
+                td admin_user.activity_trainings.count
+                td admin_user.debates.count
+                td admin_user.debate_trainings.count
+              end
+            end
+          end
+        end
+      end
+    end
 
-    #   column do
-    #     panel "Info" do
-    #       para "Welcome to ActiveAdmin."
-    #     end
-    #   end
-    # end
+    columns do
+      column do
+        panel 'Latest activities in the system' do
+          table do
+            Activity.order('created_at desc').limit(5).map do |activity|
+              tr do
+                td activity.admin_user.name
+                td link_to(activity.topic, admin_activity_path(activity))
+                td activity.created_at
+                td activity.activity_trainings.count
+              end
+            end
+          end
+        end
+
+      end
+
+      column do
+        panel 'Latest debates in the system' do
+          table do
+            Debate.order('created_at desc').limit(5).map do |debate|
+              tr do
+                td debate.admin_user.name
+                td link_to(debate.topic, admin_debate_path(debate))
+                td debate.created_at
+              end
+            end
+          end
+        end
+      end
+    end
   end # content
 end
