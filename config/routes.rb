@@ -13,7 +13,10 @@ AdiTracker::Application.routes.draw do
 
   devise_for :users
 
-  resources :trainings
+  resources :trainings, only: [:destroy, :index] do
+    get 'transcript', on: :collection
+  end
+
   resources :debate_trainings
   resources :activity_trainings
 

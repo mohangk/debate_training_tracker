@@ -1,0 +1,27 @@
+.transcript
+  %h2.transcript-title Official transcript for the 14th ADI
+  %h5 This is the official transcript for #{current_user.name} at the 14th Asian Debate Institute hosted at Chung Ang University Seoul, South Korea from the 13th-22nd of February 2013. This is a measure of achievements and learning during the ADI. 
+  .row
+    %ul
+      - @trainings_by_date.each do |adi_date, trainings|
+        %li
+          %h2.date #{adi_date.strftime('%d %B')}
+          %dl.dl-horizontal
+            - trainings.each do |training|
+              %dt.title= training.human_type
+              %dd.title= training.name
+              - if training.description
+                %dt Description
+                %dd= training.description
+              - if training.score
+                %dt Score
+                %dd= training.score
+              %dt My feedback
+              %dd= simple_format training.my_feedback
+
+              %dt Adjudicator feedback
+              %dd= simple_format training.adjudicator_feedback
+
+              = render partial: 'trainings/goals', locals: {training: training}
+              %hr
+

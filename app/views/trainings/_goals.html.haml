@@ -1,0 +1,13 @@
+%dt Goals
+%dd
+  - if training.has_positive_achievements?
+    %ul.goals
+      - training.positive_achievements.each do |achievement|
+        .row
+          .span8 #{achievement.description} 
+          .span4
+            .progress.progress-stripped
+              .bar(style="width: #{achievement.score}0%;")
+              %p.amount #{achievement.score*10}%
+  - else
+    You made no progress on your goals

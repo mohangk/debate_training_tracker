@@ -10,5 +10,5 @@
  *
  *= require_self
  *= require bootstrap_and_overrides.css.less
- *= trainings.css.scss
+ *= require trainings.css.scss
  */

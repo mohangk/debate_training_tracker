@@ -13,5 +13,8 @@
   %b Adjudicator feedback:
   = @training.adjudicator_feedback
 
+%dl
+  = render partial: 'trainings/goals', locals: {training: @training}
+
 = link_to 'Edit', edit_activity_training_path(@training), class: 'btn btn-info'
 = link_to 'Back', trainings_path, class: 'btn btn-inverse'

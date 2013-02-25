@@ -14,4 +14,15 @@ class Training < ActiveRecord::Base
     where(user_id: user.id)
   end
 
+  def human_type
+    type.gsub 'Training', ''
+  end
+
+  def positive_achievements
+    training_achievements.where('score > 0')
+  end
+
+  def has_positive_achievements?
+    positive_achievements.count > 0
+  end
 end

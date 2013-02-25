@@ -15,10 +15,15 @@ class DebateTraining < Training
   end
 
   def scheduled_at
-    debate && debate.scheduled_at.strftime('%m %B %I:%M %p')
+    debate && debate.scheduled_at
   end
 
   def lab
     user.lab
   end
+
+  def description
+
+  end
+
 end

@@ -5,19 +5,10 @@
   = @training.name
 %p
   %b My feedback:
-  = @training.my_feedback
+  = simple_format @training.my_feedback
 %p
   %b Adjudicator feedback:
-  = @training.adjudicator_feedback
--# %p
--#   %b Team mates:
--#   = @training.team_mates
--# %p
--#   %b Opponents:
--#   = @training.opponents
--# %p
-  %b Position:
-  = @training.position
+  = simple_format @training.adjudicator_feedback
 %p
   %b Won:
   = @training.won
@@ -33,6 +24,7 @@
 %p
   %b Method:
   = @training.method
-
+%dl
+  = render partial: 'trainings/goals', locals: {training: @training}
 = link_to 'Edit', edit_debate_training_path(@training), class: 'btn btn-info'
 = link_to 'Back', trainings_path, class: 'btn btn-inverse'

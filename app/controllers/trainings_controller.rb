@@ -24,6 +24,11 @@ class TrainingsController < ApplicationController
     end
   end
 
-  private
+  def transcript
+    @trainings_by_date = Training.for_user(current_user).group_by do |t|
+      t.scheduled_at.to_date
+    end
+  end
+
 
 end

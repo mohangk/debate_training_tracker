@@ -7,4 +7,18 @@ class Activity < ActiveRecord::Base
   def name
     "#{topic} #{venue}"
   end
+
+  def scheduled_at
+
+    scheduled_at_obj = super
+
+    unless scheduled_at_obj.nil?
+      def scheduled_at_obj.to_s
+        self.strftime('%d %B %I:%M %p')
+      end
+    end
+
+    scheduled_at_obj
+  end
+
 end

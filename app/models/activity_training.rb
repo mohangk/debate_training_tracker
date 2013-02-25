@@ -17,7 +17,7 @@ class ActivityTraining < Training
   end
 
   def scheduled_at
-    activity && activity.scheduled_at.strftime('%m %B %I:%M %p')
+    activity && activity.scheduled_at
   end
 
   def lab
