@@ -1,12 +1,12 @@
-%table.table
-  %tr
-    %th Description
-    %th Progress
-
+%section.my-goals.transcript
   - @my_goals.each do |goal|
-    %tr
-      %td= goal.description
-      %td= goal.average
-%br
+    .row
+      .offset1
+      .span6= goal.description
+      .span4
+        .progress.progress-stripped.progress-success
+          .bar(style="width: #{goal.average}0%;")
+          %p.amount #{goal.average*10}%
+      .offset1
 
-= link_to 'Manage my goals', new_users_goal_path, class: 'btn btn-primary'
+  = link_to 'Manage my goals', new_users_goal_path, class: 'btn btn-primary'

@@ -1,8 +1,23 @@
-.transcript
-  %h2.transcript-title Official transcript for the 14th ADI
-  %h5 This is the official transcript for #{current_user.name} at the 14th Asian Debate Institute hosted at Chung Ang University Seoul, South Korea from the 13th-22nd of February 2013. This is a measure of achievements and learning during the ADI. 
+%section.transcript
+  %h2.center.transcript-title 
+    #{image_tag 'adi_logo.png', class: 'logo'}
+    Official transcript for the 14th ADI
+  %h5.center This is the official transcript for #{current_user.name} at the 14th Asian Debate Institute hosted at Chung Ang University Seoul, South Korea from the 13th-22nd of February 2013. This is a measure of achievements and learning during the ADI. 
+  %h2.achievements Achievements
   .row
-    %ul
+    .offset1
+    .span11
+      - current_user.goals.each do |goal|
+        .row
+          .offset1
+          .span6= goal.description
+          .span4
+            .progress.progress-stripped.progress-success
+              .bar(style="width: #{goal.average}0%;")
+              %p.amount #{goal.average*10}%
+          .offset1
+  .row
+    %ul.unstyled
       - @trainings_by_date.each do |adi_date, trainings|
         %li
           %h2.date #{adi_date.strftime('%d %B')}

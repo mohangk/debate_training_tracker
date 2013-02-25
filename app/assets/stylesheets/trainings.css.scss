@@ -1,13 +1,30 @@
 // Place all the styles related to the trainings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.my-goals {
+  padding-left: 10px;
+  font-size: 12px;
+  .span6,.span4,.offset1 {
+    line-height: 8px;
+    min-height: 8px;
+    height: 8px;
+  }
+}
+
+.logo {
+  width: 40px;
+}
+.center {
+  text-align: center;
+}
 
 .transcript {
-  .transcript-title {
+  padding: 1em;
+  border: 1px solid black;
+
+  li {
+    padding-left: 10px;
   }
-
-  list-style-type: none;
-
   .span8,.span4 {
     height: 15px;
     line-height: 15px;
@@ -23,8 +40,12 @@
     font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
   }
 
-  .date {
+  .achievements, .date {
     font-family: Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
+  }
+
+  .achievements {
+    padding-top: 10px;
   }
 
   .goals {
