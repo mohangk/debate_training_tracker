@@ -6,7 +6,8 @@
     -#= f.input :debate_id, as:select, collection:
     = f.association :debate,  input_html: { class: 'input-xxlarge' }
     = f.input :won , as: :radio_buttons
-    = f.input :position, as: :select, collection: ['PM', 'DPM', 'GW', 'LO', 'DLO', 'OW']
+    = f.input :position, as: :select, collection: ['Prop - 1st Speaker',
+      'Prop - 2nd Speaker', 'Prop - 3rd Speaker', 'Opp - 1st Speaker', 'Opp - 2nd Speaker', 'Opp - 3rd Speaker']
     -# = f.input :team_mates
     -# = f.input :opponents
 
