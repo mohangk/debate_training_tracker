@@ -1,5 +1,5 @@
 ActiveAdmin.register DebateTraining do
-  menu label: 'Debate feedback', priority: 22 
+  menu label: 'Debate feedback', priority: 22
   index do
     column :scheduled_at
     column :adjudicator_feedback
@@ -14,9 +14,9 @@ ActiveAdmin.register DebateTraining do
   end
 
 
-  filter :debate_admin_user_name, as: :select, collection: AdminUser.all.map(&:name)
+  filter :debate_admin_user_name, as: :select, collection: Proc.new { AdminUser.all.map(&:name) }
   filter :debate
   filter :user
   filter :user_lab, as: :select, collection: User::LABS
-  
+
 end
