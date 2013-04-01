@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :institution, :lab
   # attr_accessible :title, :body
 
-  LABS = ['ALPHA 1', 'ALPHA 2', 'ALPHA 3', 'BETA 1', 'BETA 2', 'BETA 3', 'OMEGA']
+  LABS = ['MTT 1', 'MTT 2', 'MTT 3', 'MTT 4', 'MTT 5', 'CJT']
 
   def goals
     UsersGoal.for_user self
