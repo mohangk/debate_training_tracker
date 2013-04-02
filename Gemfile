@@ -25,6 +25,7 @@ end
 group :development do
   gem 'debugger'
   gem 'meta_request', '0.2.1'
+  gem 'letter_opener'
 end
 
 gem 'coffee-filter'
