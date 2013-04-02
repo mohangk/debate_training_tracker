@@ -14,7 +14,7 @@ ActiveAdmin.register DebateTraining do
   end
 
 
-  filter :debate_admin_user_name, as: :select, collection: Proc.new { AdminUser.all.map(&:name) }
+  filter :debate_admin_user_name, as: :select, collection: proc { AdminUser.all.map(&:name) }
   filter :debate
   filter :user
   filter :user_lab, as: :select, collection: User::LABS

@@ -10,6 +10,6 @@ ActiveAdmin.register TrainingAchievement do
 
   filter :users_goal
   filter :training
-  filter :users_goal_user_name, as: :select, collection: Proc.new { User.all.map(&:name) }, label: 'user'
+  filter :users_goal_user_name, as: :select, collection: proc { User.all.map(&:name) }, label: 'user'
   filter :users_goal_user_lab, as: :select, collection:  User::LABS, label: 'lab'
 end
