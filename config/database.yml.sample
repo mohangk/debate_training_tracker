@@ -6,7 +6,7 @@
 development:
   host: localhost
   adapter: postgresql
-  database: adi_tracker_development
+  database: ayf_tracker_development
   pool: 5
   username: 
   password:
