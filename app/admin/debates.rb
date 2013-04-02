@@ -21,7 +21,7 @@ ActiveAdmin.register Debate do
       f.input :scheduled_at
       f.input :topic
       f.input :venue
-      f.input :admin_user_id, as: :select, collection: AdminUser.all
+      f.input :admin_user
     end
 
     f.actions
