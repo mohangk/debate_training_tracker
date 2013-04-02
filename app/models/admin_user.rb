@@ -5,7 +5,7 @@ class AdminUser < ActiveRecord::Base
   devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :lab
 
   has_many :debates, inverse_of: :admin_user
   has_many :activities, inverse_of: :admin_user
