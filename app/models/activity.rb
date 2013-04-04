@@ -4,6 +4,10 @@ class Activity < ActiveRecord::Base
   has_many :activity_trainings, inverse_of: :activity
   belongs_to :admin_user, inverse_of: :activities
 
+  def self.for_user current_user
+    Activity.includes(:admin_user).where('admin_users.lab = ?', current_user.lab)
+  end
+
   def name
     "#{topic} #{venue}"
   end

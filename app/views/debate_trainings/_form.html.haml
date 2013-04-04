@@ -4,7 +4,7 @@
   .form-inputs
     -#= f.input :topic,  input_html: { class: 'input-xxlarge' }
     -#= f.input :debate_id, as:select, collection:
-    = f.association :debate,  input_html: { class: 'input-xxlarge' }
+    = f.association :debate, collection: Debate.for_user(current_user), input_html: { class: 'input-xxlarge' }
     = f.input :won , as: :radio_buttons
     = f.input :position, as: :select, collection: ['Prop - 1st Speaker',
       'Prop - 2nd Speaker', 'Prop - 3rd Speaker', 'Opp - 1st Speaker', 'Opp - 2nd Speaker', 'Opp - 3rd Speaker']

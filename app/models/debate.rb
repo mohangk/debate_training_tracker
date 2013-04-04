@@ -4,6 +4,10 @@ class Debate < ActiveRecord::Base
   has_many :debate_trainings, inverse_of: :debate
   belongs_to :admin_user, inverse_of: :debates
 
+  def self.for_user current_user
+    Debate.includes(:admin_user).where('admin_users.lab = ?', current_user.lab)
+  end
+
   def name
     "#{topic} #{venue}"
   end

@@ -2,7 +2,7 @@
   = f.error_notification
 
   .form-inputs
-    = f.association :activity,  input_html: { class: 'input-xxlarge' }
+    = f.association :activity, collection: Activity.for_user(current_user),  input_html: { class: 'input-xxlarge' }
 
     = f.input :adjudicator_feedback, as: :text, input_html: { rows: 4, class: 'input-xxlarge' }
     = f.input :my_feedback, as: :text, input_html: { rows: 4, class: 'input-xxlarge' }
