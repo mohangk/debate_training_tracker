@@ -26,4 +26,10 @@ ActiveAdmin.register Debate do
 
     f.actions
   end
+
+  filter :admin_user
+  filter :admin_user_lab, as: :select, collection: User::LABS
+  filter :topic
+  filter :venue
+  filter :scheduled_at
 end

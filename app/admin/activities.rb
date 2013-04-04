@@ -5,6 +5,9 @@ ActiveAdmin.register Activity do
     column :topic
     column :description
     column :venue
+    column :lab do |c|
+      c.admin_user.lab
+    end
     column :admin_user
     default_actions
   end
@@ -28,4 +31,11 @@ ActiveAdmin.register Activity do
 
     f.actions
   end
+
+  filter :admin_user
+  filter :admin_user_lab, as: :select, collection: User::LABS
+  filter :topic
+  filter :description
+  filter :venue
+  filter :scheduled_at
 end
