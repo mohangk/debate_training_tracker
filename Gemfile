@@ -27,6 +27,7 @@ group :development, :test do
   gem 'meta_request', '0.2.1'
 
   gem 'letter_opener'
+  gem "factory_girl_rails", "~> 4.0"
 
   gem 'rspec-rails', '~> 2.0'
   gem 'capybara'
