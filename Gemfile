@@ -22,10 +22,15 @@ group :assets do
   gem 'less-rails' #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 end
 
-group :development do
+group :development, :test do
   gem 'byebug'
   gem 'meta_request', '0.2.1'
+
   gem 'letter_opener'
+
+  gem 'rspec-rails', '~> 2.0'
+  gem 'capybara'
+  gem 'site_prism'
 end
 
 gem 'coffee-filter'
