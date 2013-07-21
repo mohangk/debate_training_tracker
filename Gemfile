@@ -23,7 +23,7 @@ group :assets do
 end
 
 group :development do
-  gem 'debugger'
+  gem 'byebug'
   gem 'meta_request', '0.2.1'
   gem 'letter_opener'
 end
