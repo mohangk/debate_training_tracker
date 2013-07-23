@@ -4,12 +4,20 @@ describe 'Admin creates training' do
 
   let!(:admin_user) { FactoryGirl.create :admin_user }
 
-  it 'can login' do
-    admin_login = AdminLoginPage.new
-    admin_login.load
-    admin_login.should have_field 'Email'
-    admin_login.should have_field 'Password'
-    admin_dashboard_page = admin_login.login admin_user.email, 'password'
-    expect(admin_dashboard_page.displayed?).to eq(true)
+  before :each do
+    AdminLoginPage.login_admin_user admin_user
+    click_on 'Activities'
+    click_on 'New Activity'
   end
+
+  it 'can create a training' do
+    fill_in 'Topic', with: 'Test topic'
+    fill_in 'Venue', with: 'Test venue'
+    fill_in 'Description', with: 'Test description'
+    select admin_user.name, from: 'Admin user'
+    click_on 'Create Activity'
+    expect(page).to have_content 'Activity was successfully created'
+  end
+
+
 end
