@@ -6,7 +6,7 @@ ActiveAdmin.register Activity do
     column :description
     column :venue
     column :lab do |c|
-      c.admin_user.lab
+      c.admin_user.lab.name
     end
     column :admin_user
     default_actions
@@ -33,7 +33,7 @@ ActiveAdmin.register Activity do
   end
 
   filter :admin_user
-  filter :admin_user_lab, as: :select, collection: User::LABS
+  filter :admin_user_lab_name, as: :select, collection: proc { Lab.all.map(&:name) }, label: 'lab'
   filter :topic
   filter :description
   filter :venue

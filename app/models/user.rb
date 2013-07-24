@@ -8,14 +8,14 @@ class User < ActiveRecord::Base
   has_many :user_goals, dependent: :destroy
   has_many :goals, through: :users_goals
   has_many :activity_trainings, dependent: :destroy
+  belongs_to :lab, inverse_of: :users
+
   validates :name, presence: true
+  validates :lab_id, presence: true
   validates :institution, presence: true
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :institution, :lab
-  # attr_accessible :title, :body
-
-  LABS = ['MTT 1', 'MTT 2', 'MTT 3', 'MTT 4', 'MTT 5', 'CJT']
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :institution, :lab_id
 
   def goals
     UsersGoal.for_user self

@@ -15,7 +15,7 @@ ActiveAdmin.register AdminUser do
     f.inputs "Admin Details" do
       f.input :name
       f.input :email
-      f.input :lab, as: :select, collection: User::LABS
+      f.input :lab
       f.input :password
       f.input :password_confirmation
     end

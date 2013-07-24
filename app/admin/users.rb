@@ -11,12 +11,12 @@ ActiveAdmin.register User do
       f.input :name
       f.input :institution
       f.input :email
-      f.input :lab, as: :select, collection: User::LABS
+      f.input :lab
     end
     f.actions
   end
 
-  filter :lab, as: :select, collection: User::LABS
+  filter :lab
   filter :email
   filter :name
   filter :institution

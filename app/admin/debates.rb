@@ -28,7 +28,7 @@ ActiveAdmin.register Debate do
   end
 
   filter :admin_user
-  filter :admin_user_lab, as: :select, collection: User::LABS
+  filter :admin_user_lab_name, as: :select, collection: proc { Lab.all.map(&:name) }, label: 'lab'
   filter :topic
   filter :venue
   filter :scheduled_at

@@ -23,6 +23,5 @@ ActiveAdmin.register ActivityTraining do
   filter :activity_admin_user_name, as: :select, collection: proc { AdminUser.all.map(&:name) }
   filter :activity
   filter :user
-  filter :user_lab, as: :select, collection: User::LABS
-
+  filter :user_lab_name, as: :select, collection: proc { Lab.all.map(&:name) }, label: 'lab'
 end

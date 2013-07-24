@@ -6,7 +6,7 @@
   <div class="form-inputs">
     <%= f.input :name, :required => true, :autofocus => true %>
     <%= f.input :institution, :required => true, :autofocus => true %>
-    <%= f.input :lab, :as => :select, collection: User::LABS, :required => true %>
+    <%= f.association :lab, :required => true %>
     <%= f.input :email, :required => true, :autofocus => true %>
     <%= f.input :password, :required => true %>
     <%= f.input :password_confirmation, :required => true %>
