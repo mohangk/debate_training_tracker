@@ -31,7 +31,9 @@ group :development, :test do
 
   gem 'rspec-rails', '~> 2.0'
   gem 'capybara'
+  gem 'selenium-webdriver'
   gem 'site_prism'
+  gem 'database_cleaner'
 end
 
 gem 'coffee-filter'

@@ -1,8 +1,12 @@
-= simple_form_for(@training) do |f|
+= simple_form_for @training do |f|
   = f.error_notification
 
   .form-inputs
     = f.association :activity, collection: Activity.for_user(current_user),  input_html: { class: 'input-xxlarge' }
+
+    %p Description
+    %p.description
+      = @training.activity && @training.activity.description
 
     = f.input :adjudicator_feedback, as: :text, input_html: { rows: 4, class: 'input-xxlarge' }
     = f.input :my_feedback, as: :text, input_html: { rows: 4, class: 'input-xxlarge' }
@@ -16,3 +20,27 @@
 
   .form-actions
     = f.button :submit, class: 'btn btn-success'
+
+:javascript
+
+  function updateDescription(content) {
+    $('.description').html(content);
+  }
+
+  $('#activity_training_activity_id').on('change', function(event) {
+    var activityId = event.target.value;
+
+    if(activityId == "") {
+      updateDescription('');
+    }
+    else {
+      $.ajax({
+        dataType: 'json',
+        url:      '/activities/'+activityId+'.json',
+        success:  function (data) {
+            updateDescription(data.description);
+          }
+        })
+    }
+  })
+

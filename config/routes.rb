@@ -5,6 +5,7 @@ AdiTracker::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   resources :users_goals
+  resources :activities, only: [:show]
 
 
   resources :goals
