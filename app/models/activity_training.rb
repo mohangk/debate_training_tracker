@@ -5,8 +5,8 @@ class ActivityTraining < Training
 
   validates :activity, presence: true
 
-  attr_accessible :adjudicator_feedback, 
-    :my_feedback, :activity_id
+  attr_accessible :adjudicator_feedback,
+    :my_feedback, :activity_id, :assignment_answer
 
   def name
     activity && activity.topic

@@ -5,13 +5,16 @@
   = @training.name
 %p
   %b Description:
-  = @training.description
+  = simple_format @training.description
 %p
-  %b My feedback:
-  = @training.my_feedback
+  %b Assignment answer:
+  = @training.assignment_answer
 %p
   %b Adjudicator feedback:
   = @training.adjudicator_feedback
+%p
+  %b My notes:
+  = @training.my_feedback
 
 %dl
   = render partial: 'trainings/goals', locals: {training: @training}

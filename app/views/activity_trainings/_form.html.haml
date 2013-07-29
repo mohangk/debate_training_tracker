@@ -4,12 +4,22 @@
   .form-inputs
     = f.association :activity, collection: Activity.for_user(current_user),  input_html: { class: 'input-xxlarge' }
 
-    %p Description
+    %h5 Description
     %p.description
-      = @training.activity && @training.activity.description
+      = simple_format @training.activity && @training.activity.description
 
-    = f.input :adjudicator_feedback, as: :text, input_html: { rows: 4, class: 'input-xxlarge' }
-    = f.input :my_feedback, as: :text, input_html: { rows: 4, class: 'input-xxlarge' }
+    - if @training.adjudicator_feedback.blank?
+      = f.input :assignment_answer, as: :text, input_html: { rows: 4, class: 'input-xxlarge' }
+    - else
+      %h5 Assignment answer
+      %p.assignment_answer
+        = @training.assignment_answer
+
+    %h5 Trainer's feedback
+    %p.adjudicator_feedback
+      = @training.adjudicator_feedback
+
+    = f.input :my_feedback, label: "My notes", as: :text, input_html: { rows: 4, class: 'input-xxlarge' }
 
     %h2 Goals progress
 
