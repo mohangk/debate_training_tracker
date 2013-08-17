@@ -7,6 +7,7 @@ ActiveAdmin.register ActivityTraining do
     column :user
     column :lab, sortable: false
     column :activity
+    column :assignment_answer
     default_actions
   end
 
@@ -15,6 +16,7 @@ ActiveAdmin.register ActivityTraining do
       f.input :activity
       f.input :adjudicator_feedback
       f.input :my_feedback
+      f.input :assignment_answer
     end
     f.actions
   end
